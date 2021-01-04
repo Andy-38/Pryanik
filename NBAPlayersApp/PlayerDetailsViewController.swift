@@ -9,10 +9,17 @@ import UIKit
 
 class PlayerDetailsViewController: UIViewController {
 
+    @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    
+    var player: Player?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Players"
+        navigationItem.title = player?.name
         navigationController?.navigationBar.prefersLargeTitles = true // большие заголовки
+        positionLabel.text = player?.position
+        heightLabel.text = player?.height
     }
     
 
