@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD125A339B70040EAA0 /* AppDelegate.swift */; };
 		A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */; };
-		A16F1FD625A339B70040EAA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD525A339B70040EAA0 /* ViewController.swift */; };
 		A16F1FD925A339B70040EAA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FD725A339B70040EAA0 /* Main.storyboard */; };
 		A16F1FDB25A339B80040EAA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FDA25A339B80040EAA0 /* Assets.xcassets */; };
 		A16F1FDE25A339B80040EAA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FDC25A339B80040EAA0 /* LaunchScreen.storyboard */; };
+		A16F1FEA25A33A6C0040EAA0 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A16F1FCE25A339B70040EAA0 /* NBAPlayersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAPlayersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16F1FD125A339B70040EAA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A16F1FD525A339B70040EAA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A16F1FD825A339B70040EAA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A16F1FDA25A339B80040EAA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A16F1FDD25A339B80040EAA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A16F1FDF25A339B80040EAA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				A16F1FD125A339B70040EAA0 /* AppDelegate.swift */,
+				A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */,
 				A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */,
-				A16F1FD525A339B70040EAA0 /* ViewController.swift */,
 				A16F1FD725A339B70040EAA0 /* Main.storyboard */,
 				A16F1FDA25A339B80040EAA0 /* Assets.xcassets */,
 				A16F1FDC25A339B80040EAA0 /* LaunchScreen.storyboard */,
@@ -137,9 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16F1FD625A339B70040EAA0 /* ViewController.swift in Sources */,
 				A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */,
 				A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */,
+				A16F1FEA25A33A6C0040EAA0 /* PlayersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TURJQ23G7Y;
 				INFOPLIST_FILE = NBAPlayersApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +297,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Andrey-Dvoytsov.NBAPlayersApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TURJQ23G7Y;
 				INFOPLIST_FILE = NBAPlayersApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Andrey-Dvoytsov.NBAPlayersApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

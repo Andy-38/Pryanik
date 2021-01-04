@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  NBAPlayersApp
 //
-//  Created by Андрей on 04.01.2021.
+//  Created by Андрей Двойцов on 04.01.2021.
 //
 
 import UIKit
