@@ -11,15 +11,21 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
 
     let players: [Player] = [
         Player(name: "LeBron James",
-               teamName: "Los Angeles Lakers",
+               teamCity: "Los Angeles",
+               teamName: "Lakers",
+               teamConference: "West",
                position: "SF",
                height: "6'10''"),
         Player(name: "Anthony Davis",
-               teamName: "Los Angeles Lakers",
+               teamCity: "Los Angeles",
+               teamName: "Lakers",
+               teamConference: "West",
                position: "PF",
                height: "7'0''"),
         Player(name: "Jimmy Butler",
-               teamName: "Miami Heat",
+               teamCity: "Miami",
+               teamName: "Heat",
+               teamConference: "East",
                position: "SG",
                height: "6'8''")
     ]
@@ -40,7 +46,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath)
         let player = players[indexPath.row] // получаем элемент массива
         cell.textLabel?.text = player.name
-        cell.detailTextLabel?.text = player.teamName
+        cell.detailTextLabel?.text = player.teamCity + " " + player.teamName
         return cell
     }
     
@@ -50,7 +56,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let player = players[indexPath.row] // получаем элемент массива
         
-        playerDetailsViewController.player = player
+        playerDetailsViewController.player = player // передаем его на новый экран
         
         navigationController?.pushViewController(playerDetailsViewController, animated: true)
     }

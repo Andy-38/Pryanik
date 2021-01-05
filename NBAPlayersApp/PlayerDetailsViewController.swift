@@ -11,6 +11,7 @@ class PlayerDetailsViewController: UIViewController {
 
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var teamButton: UIButton!
     
     var player: Player?
     
@@ -22,7 +23,20 @@ class PlayerDetailsViewController: UIViewController {
         heightLabel.text = player?.height
     }
     
-
+    @IBAction func onTeamButtonClick(_ sender: Any) {
+    // реализовать переход на экран с детальной информацией о команде
+    // город, название, конференция
+    // Los Angeles, Lakers, West
+    // Miami, Heat, East
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let teamDetailsViewController = storyboard.instantiateViewController(identifier: "TeamDetails") as! TeamDetailViewController
+        
+        teamDetailsViewController.player = player // передаем его на новый экран
+        
+        navigationController?.pushViewController(teamDetailsViewController, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

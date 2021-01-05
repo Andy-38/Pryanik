@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13BCC0825A3611E002B0DE9 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BCC0725A3611E002B0DE9 /* TeamDetailViewController.swift */; };
 		A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD125A339B70040EAA0 /* AppDelegate.swift */; };
 		A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */; };
 		A16F1FD925A339B70040EAA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FD725A339B70040EAA0 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A13BCC0725A3611E002B0DE9 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		A16F1FCE25A339B70040EAA0 /* NBAPlayersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAPlayersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16F1FD125A339B70040EAA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				A16F1FEF25A3445C0040EAA0 /* Player.swift */,
 				A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */,
 				A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */,
+				A13BCC0725A3611E002B0DE9 /* TeamDetailViewController.swift */,
 				A16F1FD725A339B70040EAA0 /* Main.storyboard */,
 				A16F1FDA25A339B80040EAA0 /* Assets.xcassets */,
 				A16F1FDC25A339B80040EAA0 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 				A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */,
 				A16F1FED25A340570040EAA0 /* PlayerDetailsViewController.swift in Sources */,
 				A16F1FF025A3445C0040EAA0 /* Player.swift in Sources */,
+				A13BCC0825A3611E002B0DE9 /* TeamDetailViewController.swift in Sources */,
 				A16F1FEA25A33A6C0040EAA0 /* PlayersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

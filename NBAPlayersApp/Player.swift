@@ -9,7 +9,9 @@ import Foundation
 
 struct Player {
     let name: String
+    let teamCity: String
     let teamName: String
+    let teamConference: String
     let position: String
     let height: String
 }
