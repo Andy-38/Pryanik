@@ -16,6 +16,7 @@
 		A16F1FEA25A33A6C0040EAA0 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */; };
 		A16F1FED25A340570040EAA0 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */; };
 		A16F1FF025A3445C0040EAA0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FEF25A3445C0040EAA0 /* Player.swift */; };
+		A1A229DD25A4733A00CF8B99 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A229DC25A4733A00CF8B99 /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		A16F1FEF25A3445C0040EAA0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A1A229DC25A4733A00CF8B99 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				A16F1FD125A339B70040EAA0 /* AppDelegate.swift */,
 				A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */,
+				A1A229DC25A4733A00CF8B99 /* ApiClient.swift */,
 				A16F1FEF25A3445C0040EAA0 /* Player.swift */,
 				A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */,
 				A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A229DD25A4733A00CF8B99 /* ApiClient.swift in Sources */,
 				A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */,
 				A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */,
 				A16F1FED25A340570040EAA0 /* PlayerDetailsViewController.swift in Sources */,

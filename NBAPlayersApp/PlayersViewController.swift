@@ -9,26 +9,8 @@ import UIKit
 
 class PlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let players: [Player] = [
-        Player(name: "LeBron James",
-               teamCity: "Los Angeles",
-               teamName: "Lakers",
-               teamConference: "West",
-               position: "SF",
-               height: "6'10''"),
-        Player(name: "Anthony Davis",
-               teamCity: "Los Angeles",
-               teamName: "Lakers",
-               teamConference: "West",
-               position: "PF",
-               height: "7'0''"),
-        Player(name: "Jimmy Butler",
-               teamCity: "Miami",
-               teamName: "Heat",
-               teamConference: "East",
-               position: "SG",
-               height: "6'8''")
-    ]
+    let players: [Player] = []
+    let apiClient: ApiClient = ApiClientImpl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +28,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath)
         let player = players[indexPath.row] // получаем элемент массива
         cell.textLabel?.text = player.name
-        cell.detailTextLabel?.text = player.teamCity + " " + player.teamName
+        cell.detailTextLabel?.text = player.team.fullName
         return cell
     }
     

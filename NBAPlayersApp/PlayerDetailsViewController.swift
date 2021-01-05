@@ -21,6 +21,9 @@ class PlayerDetailsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true // большие заголовки
         positionLabel.text = player?.position
         heightLabel.text = player?.height
+        teamButton.setTitle(player?.team.name, for: .normal)
+        //teamButton.setTitle(player?.team.fullName, for: .normal)
+        
     }
     
     @IBAction func onTeamButtonClick(_ sender: Any) {
@@ -36,15 +39,5 @@ class PlayerDetailsViewController: UIViewController {
         
         navigationController?.pushViewController(teamDetailsViewController, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

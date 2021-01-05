@@ -17,11 +17,12 @@ class TeamDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "\(player!.teamCity) \(player!.teamName)"
+        //navigationItem.title = "\(player!.teamCity) \(player!.teamName)"
+        navigationItem.title = player?.team.fullName
         navigationController?.navigationBar.prefersLargeTitles = true // большие заголовки
-        confLabel.text = player?.teamConference
-        cityLabel.text = player?.teamCity
-        nameLabel.text = player?.teamName
+        confLabel.text = player?.team.conference
+        cityLabel.text = player?.team.city
+        nameLabel.text = player?.team.name
         //.text = player?.position
         //heightLabel.text = player?.height
         
