@@ -26,28 +26,43 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func onReloadButtonClick(_ sender: Any) {
         reload()
-        reloadButton.isHidden = true
-        errorLabel.isHidden = true
     }
     
     private func reload() { // функция для загрузки данных
-        activityIndicatorView.startAnimating() // включаем крутилку-индикатор загрузки данных
+        showloading()
         apiClient.getPlayers(completion: { result in // получаем игроков через протокол apiClient в дополнительном потоке
             DispatchQueue.main.async { // возвращаемся в основной поток
                 switch result {
                 case .success(let players):
                     self.players = players // в случае успеха - на выходе массив игроков
-                    self.reloadButton.isHidden = true
-                    self.errorLabel.isHidden = true
+                    self.showData()
                 case .failure:
                     self.players = [] // в случае неудачи - пустой массив
-                    self.reloadButton.isHidden = false
-                    self.errorLabel.isHidden = false
+                    self.showError()
                 }
-                self.tableView.reloadData() // перезагружаем tableView с новыми данными
-                self.activityIndicatorView.stopAnimating() // выключаем круилку-индикатор загрузки данных
+                
+                
             }
         })
+    }
+    
+    private func showloading() {
+        activityIndicatorView.startAnimating() // включаем крутилку-индикатор загрузки данных
+        reloadButton.isHidden = true
+        errorLabel.isHidden = true
+    }
+    
+    private func showData() {
+        self.activityIndicatorView.stopAnimating() // выключаем круилку-индикатор загрузки данных
+        reloadButton.isHidden = true
+        errorLabel.isHidden = true
+        self.tableView.reloadData() // перезагружаем tableView с новыми данными
+    }
+    
+    private func showError() {
+        self.activityIndicatorView.stopAnimating() // выключаем круилку-индикатор загрузки данных
+        reloadButton.isHidden = false
+        errorLabel.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

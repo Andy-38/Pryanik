@@ -26,8 +26,8 @@ class ApiClientImpl: ApiClient {
         let dataTask = session.dataTask(with: urlRequest, completionHandler: { data, response, error in
             
             //sleep(5) //задержка 5 секунд
-            completion(.failure(ApiError.noData))
-            return
+            //completion(.failure(ApiError.noData))
+            //return
             
             guard let data = data else { // проверяем получены ли данные
                 completion(.failure(ApiError.noData)) // выдаем ошибку если данных нет
