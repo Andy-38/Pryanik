@@ -24,6 +24,9 @@ class ApiClientImpl: ApiClient {
         let urlRequest = URLRequest(url: url) // создаем запрос на основе URL-адреса
         //создаем задачу для загрузки данных:
         let dataTask = session.dataTask(with: urlRequest, completionHandler: { data, response, error in
+            
+            //sleep(5) //задержка 5 секунд
+            
             guard let data = data else { // проверяем получены ли данные
                 completion(.failure(ApiError.noData)) // выдаем ошибку если данных нет
                 return

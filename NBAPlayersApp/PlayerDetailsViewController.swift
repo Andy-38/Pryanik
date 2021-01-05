@@ -21,9 +21,7 @@ class PlayerDetailsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true // большие заголовки
         positionLabel.text = player?.position
         heightLabel.text = player?.height
-        teamButton.setTitle(player?.team.name, for: .normal)
-        //teamButton.setTitle(player?.team.fullName, for: .normal)
-        
+        teamButton.setTitle(player?.team.fullName, for: .normal)
     }
     
     @IBAction func onTeamButtonClick(_ sender: Any) {

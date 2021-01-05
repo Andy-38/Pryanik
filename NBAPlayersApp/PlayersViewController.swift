@@ -9,13 +9,29 @@ import UIKit
 
 class PlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let players: [Player] = []
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    var players: [Player] = []
     let apiClient: ApiClient = ApiClientImpl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Players"
         navigationController?.navigationBar.prefersLargeTitles = true // большие заголовки
+        activityIndicatorView.startAnimating() // включаем крутилку-индикатор загрузки данных
+        apiClient.getPlayers(completion: { result in // получаем игроков через протокол apiClient в дополнительном потоке
+            DispatchQueue.main.async { // возвращаемся в основной поток
+                switch result {
+                case .success(let players):
+                    self.players = players // в случае успеха - на выходе массив игроков
+                case .failure:
+                    self.players = [] // в случае неудачи - пустой массив
+                }
+                self.tableView.reloadData() // перезагружаем tableView с новыми данными
+                self.activityIndicatorView.stopAnimating() // выключаем круилку-индикатор загрузки данных
+            }
+        })
         
     }
     
