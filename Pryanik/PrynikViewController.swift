@@ -45,20 +45,20 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
             }
         })
         
-        apiClient.getView(completion: { result in // получаем данные через протокол apiClient в дополнительном потоке
-            DispatchQueue.main.async { // возвращаемся в основной поток
-                switch result {
-                case .success(let views):
-                    self.views = views // в случае успеха - на выходе массив данных
-                    self.showData()
-                case .failure:
-                    self.views = [] // в случае неудачи - пустой массив
-                    self.showError()
-                }
-                
-                
-            }
-        })
+//        apiClient.getView(completion: { result in // получаем данные через протокол apiClient в дополнительном потоке
+//            DispatchQueue.main.async { // возвращаемся в основной поток
+//                switch result {
+//                case .success(let views):
+//                    self.views = views // в случае успеха - на выходе массив данных
+//                    self.showData()
+//                case .failure:
+//                    self.views = [] // в случае неудачи - пустой массив
+//                    self.showError()
+//                }
+//
+//
+//            }
+//        })
     }
     
     private func showloading() {

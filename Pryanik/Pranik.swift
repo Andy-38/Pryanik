@@ -15,10 +15,23 @@ struct PryanikResponse: Decodable { // структура получаемых �
 
 struct Pranik: Decodable {
     let name: String
+   // let datta: Datta
+    let datta: Datta
     
     enum CodingKeys: String, CodingKey { // для преобразования имен
         case name //поля которые совпадают и на сервере и в массиве - не трогаем
-//        case name = "first_name" //поля которые совпадают и на сервере и в массиве - не трогаем
-//        case firstName = "first_name" // которые не совпадают - указываем соответствие
+        case datta = "data" // которые не совпадают - указываем соответствие
     }
+}
+
+struct Datta: Decodable {
+    let text: String
+  //  let url:  String
+  //  let selectedId: Int
+  //  let variants: Variants
+}
+
+struct Variants: Decodable {
+    let id: Int
+    let text: String
 }
