@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NBAPlayersApp
+//  Pryanik
 //
-//  Created by Андрей Двойцов on 04.01.2021.
+//  Created by Андрей Двойцов on 29.01.2021.
 //
 
 import UIKit

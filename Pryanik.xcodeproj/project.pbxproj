@@ -7,21 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A13BCC0825A3611E002B0DE9 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BCC0725A3611E002B0DE9 /* TeamDetailViewController.swift */; };
 		A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD125A339B70040EAA0 /* AppDelegate.swift */; };
 		A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */; };
 		A16F1FD925A339B70040EAA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FD725A339B70040EAA0 /* Main.storyboard */; };
 		A16F1FDB25A339B80040EAA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FDA25A339B80040EAA0 /* Assets.xcassets */; };
 		A16F1FDE25A339B80040EAA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FDC25A339B80040EAA0 /* LaunchScreen.storyboard */; };
 		A16F1FEA25A33A6C0040EAA0 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */; };
-		A16F1FED25A340570040EAA0 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */; };
 		A16F1FF025A3445C0040EAA0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FEF25A3445C0040EAA0 /* Player.swift */; };
 		A1A229DD25A4733A00CF8B99 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A229DC25A4733A00CF8B99 /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A13BCC0725A3611E002B0DE9 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
-		A16F1FCE25A339B70040EAA0 /* NBAPlayersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAPlayersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16F1FCE25A339B70040EAA0 /* Pryanik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pryanik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16F1FD125A339B70040EAA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A16F1FD825A339B70040EAA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -29,7 +26,6 @@
 		A16F1FDD25A339B80040EAA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A16F1FDF25A339B80040EAA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
-		A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		A16F1FEF25A3445C0040EAA0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A1A229DC25A4733A00CF8B99 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +44,7 @@
 		A16F1FC525A339B70040EAA0 = {
 			isa = PBXGroup;
 			children = (
-				A16F1FD025A339B70040EAA0 /* NBAPlayersApp */,
+				A16F1FD025A339B70040EAA0 /* Pryanik */,
 				A16F1FCF25A339B70040EAA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,35 +52,33 @@
 		A16F1FCF25A339B70040EAA0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A16F1FCE25A339B70040EAA0 /* NBAPlayersApp.app */,
+				A16F1FCE25A339B70040EAA0 /* Pryanik.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A16F1FD025A339B70040EAA0 /* NBAPlayersApp */ = {
+		A16F1FD025A339B70040EAA0 /* Pryanik */ = {
 			isa = PBXGroup;
 			children = (
 				A16F1FD125A339B70040EAA0 /* AppDelegate.swift */,
 				A16F1FE925A33A6C0040EAA0 /* PlayersViewController.swift */,
 				A1A229DC25A4733A00CF8B99 /* ApiClient.swift */,
 				A16F1FEF25A3445C0040EAA0 /* Player.swift */,
-				A16F1FEC25A340570040EAA0 /* PlayerDetailsViewController.swift */,
 				A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */,
-				A13BCC0725A3611E002B0DE9 /* TeamDetailViewController.swift */,
 				A16F1FD725A339B70040EAA0 /* Main.storyboard */,
 				A16F1FDA25A339B80040EAA0 /* Assets.xcassets */,
 				A16F1FDC25A339B80040EAA0 /* LaunchScreen.storyboard */,
 				A16F1FDF25A339B80040EAA0 /* Info.plist */,
 			);
-			path = NBAPlayersApp;
+			path = Pryanik;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A16F1FCD25A339B70040EAA0 /* NBAPlayersApp */ = {
+		A16F1FCD25A339B70040EAA0 /* Pryanik */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A16F1FE225A339B80040EAA0 /* Build configuration list for PBXNativeTarget "NBAPlayersApp" */;
+			buildConfigurationList = A16F1FE225A339B80040EAA0 /* Build configuration list for PBXNativeTarget "Pryanik" */;
 			buildPhases = (
 				A16F1FCA25A339B70040EAA0 /* Sources */,
 				A16F1FCB25A339B70040EAA0 /* Frameworks */,
@@ -94,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = NBAPlayersApp;
+			name = Pryanik;
 			productName = NBAPlayersApp;
-			productReference = A16F1FCE25A339B70040EAA0 /* NBAPlayersApp.app */;
+			productReference = A16F1FCE25A339B70040EAA0 /* Pryanik.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A16F1FC925A339B70040EAA0 /* Build configuration list for PBXProject "NBAPlayersApp" */;
+			buildConfigurationList = A16F1FC925A339B70040EAA0 /* Build configuration list for PBXProject "Pryanik" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A16F1FCD25A339B70040EAA0 /* NBAPlayersApp */,
+				A16F1FCD25A339B70040EAA0 /* Pryanik */,
 			);
 		};
 /* End PBXProject section */
@@ -152,9 +146,7 @@
 				A1A229DD25A4733A00CF8B99 /* ApiClient.swift in Sources */,
 				A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */,
 				A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */,
-				A16F1FED25A340570040EAA0 /* PlayerDetailsViewController.swift in Sources */,
 				A16F1FF025A3445C0040EAA0 /* Player.swift in Sources */,
-				A13BCC0825A3611E002B0DE9 /* TeamDetailViewController.swift in Sources */,
 				A16F1FEA25A33A6C0040EAA0 /* PlayersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,13 +296,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TURJQ23G7Y;
-				INFOPLIST_FILE = NBAPlayersApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pryanik/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrey-Dvoytsov.NBAPlayersApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Andrey-Dvoytsov.Pryanik";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -324,13 +316,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TURJQ23G7Y;
-				INFOPLIST_FILE = NBAPlayersApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pryanik/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrey-Dvoytsov.NBAPlayersApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Andrey-Dvoytsov.Pryanik";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -340,7 +332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A16F1FC925A339B70040EAA0 /* Build configuration list for PBXProject "NBAPlayersApp" */ = {
+		A16F1FC925A339B70040EAA0 /* Build configuration list for PBXProject "Pryanik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A16F1FE025A339B80040EAA0 /* Debug */,
@@ -349,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A16F1FE225A339B80040EAA0 /* Build configuration list for PBXNativeTarget "NBAPlayersApp" */ = {
+		A16F1FE225A339B80040EAA0 /* Build configuration list for PBXNativeTarget "Pryanik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A16F1FE325A339B80040EAA0 /* Debug */,

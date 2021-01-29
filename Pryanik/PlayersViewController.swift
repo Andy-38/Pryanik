@@ -1,8 +1,8 @@
 //
 //  PlayersViewController.swift
-//  NBAPlayersApp
+//  Pryanik
 //
-//  Created by Андрей Двойцов on 04.01.2021.
+//  Created by Андрей Двойцов on 29.01.2021.
 //
 
 import UIKit
@@ -19,8 +19,6 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Players"
-        navigationController?.navigationBar.prefersLargeTitles = true // большие заголовки
         reload()
     }
     
@@ -79,14 +77,14 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let playerDetailsViewController = storyboard.instantiateViewController(identifier: "PlayerDetails") as! PlayerDetailsViewController
-        
-        let player = players[indexPath.row] // получаем элемент массива
-        
-        playerDetailsViewController.player = player // передаем его на новый экран
-        
-        navigationController?.pushViewController(playerDetailsViewController, animated: true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//        let playerDetailsViewController = storyboard.instantiateViewController(identifier: "PlayerDetails") as! PlayerDetailsViewController
+//
+//        let player = players[indexPath.row] // получаем элемент массива
+//
+//        playerDetailsViewController.player = player // передаем его на новый экран
+//
+//        navigationController?.pushViewController(playerDetailsViewController, animated: true)
     }
     
     }

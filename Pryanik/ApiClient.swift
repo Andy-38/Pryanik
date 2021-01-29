@@ -1,8 +1,8 @@
 //
 //  ApiClient.swift
-//  NBAPlayersApp
+//  Pryanik
 //
-//  Created by Andy Dvoytsov on 05.01.2021.
+//  Created by Андрей Двойцов on 29.01.2021.
 //
 // Клиент для получения данных с сервера
 
