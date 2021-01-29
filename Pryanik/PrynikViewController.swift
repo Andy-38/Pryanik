@@ -7,19 +7,21 @@
 
 import UIKit
 
-class PlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PrynikViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    var players: [Player] = []
+    var praniks: [Pranik] = []
+    var views: [String] = []
     let apiClient: ApiClient = ApiClientImpl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reload()
+        print(views)
     }
     
     @IBAction func onReloadButtonClick(_ sender: Any) {
@@ -28,14 +30,29 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     private func reload() { // функция для загрузки данных
         showloading()
-        apiClient.getPlayers(completion: { result in // получаем игроков через протокол apiClient в дополнительном потоке
+        apiClient.getPryaniks(completion: { result in // получаем данные через протокол apiClient в дополнительном потоке
             DispatchQueue.main.async { // возвращаемся в основной поток
                 switch result {
-                case .success(let players):
-                    self.players = players // в случае успеха - на выходе массив игроков
+                case .success(let praniks):
+                    self.praniks = praniks // в случае успеха - на выходе массив данных
                     self.showData()
                 case .failure:
-                    self.players = [] // в случае неудачи - пустой массив
+                    self.praniks = [] // в случае неудачи - пустой массив
+                    self.showError()
+                }
+                
+                
+            }
+        })
+        
+        apiClient.getView(completion: { result in // получаем данные через протокол apiClient в дополнительном потоке
+            DispatchQueue.main.async { // возвращаемся в основной поток
+                switch result {
+                case .success(let views):
+                    self.views = views // в случае успеха - на выходе массив данных
+                    self.showData()
+                case .failure:
+                    self.views = [] // в случае неудачи - пустой массив
                     self.showError()
                 }
                 
@@ -64,27 +81,20 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count // количество элементов массива players
+        return praniks.count // количество элементов массива praniks
         // сколько раз вызывается функция следующая
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath)
-        let player = players[indexPath.row] // получаем элемент массива
-        cell.textLabel?.text = player.name
-        cell.detailTextLabel?.text = player.team.fullName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PryanikCell", for: indexPath)
+        let pranik = praniks[indexPath.row] // получаем элемент массива
+        cell.textLabel?.text = pranik.name
+//        cell.detailTextLabel?.text = player.team.fullName
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-//        let playerDetailsViewController = storyboard.instantiateViewController(identifier: "PlayerDetails") as! PlayerDetailsViewController
-//
-//        let player = players[indexPath.row] // получаем элемент массива
-//
-//        playerDetailsViewController.player = player // передаем его на новый экран
-//
-//        navigationController?.pushViewController(playerDetailsViewController, animated: true)
+// вызывается при нажатии
     }
     
     }
