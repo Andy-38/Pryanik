@@ -72,7 +72,6 @@ class ApiClientImpl: ApiClient { // класс реализует протоко
 //                let response = try jsonDecoder.decode(PryanikResponse.self, from: self.testJson!/* data */) // декодируем из testJson нужные нам данные типа PryanikResponse
                 completion(.success(response.data))
             } catch(let error) { // если поймали ошибку то:
-                //print(error)
                 completion(.failure(error))
             }
         })

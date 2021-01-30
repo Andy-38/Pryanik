@@ -15,7 +15,6 @@ struct PryanikResponse: Decodable { // структура получаемых �
 
 struct Pranik: Decodable {
     let name: String
-   // let datta: Datta
     let datta: Datta
     
     enum CodingKeys: String, CodingKey { // для преобразования имен
