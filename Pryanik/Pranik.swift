@@ -25,10 +25,10 @@ struct Pranik: Decodable {
 }
 
 struct Datta: Decodable {
-    let text: String
-  //  let url:  String
-  //  let selectedId: Int
-  //  let variants: Variants
+    let text: String?
+    let url:  String?
+    let selectedId: Int?
+    let variants: [Variants]?
 }
 
 struct Variants: Decodable {

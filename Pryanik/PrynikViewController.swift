@@ -89,7 +89,7 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "PryanikCell", for: indexPath)
         let pranik = praniks[indexPath.row] // получаем элемент массива
         cell.textLabel?.text = pranik.name
-//        cell.detailTextLabel?.text = player.team.fullName
+        if let text = pranik.datta.text { cell.detailTextLabel?.text = text }
         return cell
     }
     
