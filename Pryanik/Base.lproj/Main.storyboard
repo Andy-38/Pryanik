@@ -55,15 +55,15 @@
                                 <rect key="frame" x="0.0" y="384" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v4-lG-O7R">
-                                <rect key="frame" x="129" y="355" width="106" height="21"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка сети" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v4-lG-O7R">
+                                <rect key="frame" x="130" y="355" width="104.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ1-se-LsH">
-                                <rect key="frame" x="164" y="396" width="47" height="30"/>
-                                <state key="normal" title="Reload"/>
+                                <rect key="frame" x="104.66666666666669" y="396" width="166" height="30"/>
+                                <state key="normal" title="Перезагрузить данные"/>
                                 <connections>
                                     <action selector="onReloadButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZFL-uU-cnX"/>
                                 </connections>
