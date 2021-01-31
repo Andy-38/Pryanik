@@ -87,7 +87,6 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print (#line, #function)
         return views.count // количество элементов массива praniks
     }
     
