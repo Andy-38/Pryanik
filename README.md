@@ -8,7 +8,7 @@ Use Xcode 12 or above to install
 
 ## ScreenShots
 
-![Main Screen](https://github.com/Andy-38/ChinaZodiac/blob/main/ChinaZodiac/ScreenShots/ScreenShot01.png)
+![Main Screen](https://github.com/Andy-38/Pryanik/blob/main/Pryanik/ScreenShot01.png)
 
 ## Note
 
