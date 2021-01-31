@@ -136,7 +136,7 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         }
         if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
             cell.segmentControl.selectedSegmentIndex = selectedID - 1
-        }
+        } 
         
         return cell
     }
