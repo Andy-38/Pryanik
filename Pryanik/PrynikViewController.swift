@@ -11,6 +11,7 @@ class MyCell: UITableViewCell {
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBAction func onSegmentChange(_ sender: Any) {
+        // по уму конечно тут надо конечно делегировать обработку классу, подписанному на протокол делегирования, но раз особо ничего делать не нужно с переключателем в тестовом задании, то просто покажу сообщение отсюда
         let alert = UIAlertController(title: "Внимание!", message: "Был выбран вариант: " + segmentControl.titleForSegment(at: segmentControl.selectedSegmentIndex)!, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.window?.rootViewController?.present(alert, animated: true)
