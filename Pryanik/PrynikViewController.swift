@@ -9,6 +9,7 @@ import UIKit
 
 class MyCell: UITableViewCell {
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
 }
 
 class PrynikViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -80,6 +81,7 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print (#line, #function)
         return views.count // количество элементов массива praniks
     }
     
@@ -101,18 +103,34 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         let currentPryanik = findPryanikIndexByName(name: view) // ищем этот элемент среди загруженных
         
         // выводим его в таблицу
+        
+        // тип данных
         cell.detailTextLabel?.text = "Тип данных: " + currentPryanik.name
+        
+        // текст - если он есть
         if let text = currentPryanik.datta.text { cell.textLabel?.text = text }
         
+        //изображение - если есть
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: url!) // проверяем что изображение по ссылке существует
                 DispatchQueue.main.async {
                     cell.imageView?.image = UIImage(data: data!) // загружаем его асинхронно
-                    tableView.reloadData() 
                 }
             }
+        }
+        
+        // переключатель - если есть
+        if let segments = currentPryanik.datta.variants {
+            cell.segmentControl.removeAllSegments()
+            cell.segmentControl.isHidden = false
+            for num in 0...segments.count-1 {
+                cell.segmentControl.insertSegment(withTitle: currentPryanik.datta.variants![num].text, at: currentPryanik.datta.variants![num].id, animated: false)
+            }
+        }
+        if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
+            cell.segmentControl.selectedSegmentIndex = selectedID - 1
         }
         
         return cell
