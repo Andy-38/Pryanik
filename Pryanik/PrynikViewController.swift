@@ -10,6 +10,12 @@ import UIKit
 class MyCell: UITableViewCell {
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBAction func onSegmentChange(_ sender: Any) {
+        let alert = UIAlertController(title: "Внимание!", message: "Был выбран вариант: " + segmentControl.titleForSegment(at: segmentControl.selectedSegmentIndex)!, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.window?.rootViewController?.present(alert, animated: true)
+        
+    }
 }
 
 class PrynikViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -113,12 +119,12 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         //изображение - если есть
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
-            DispatchQueue.global().async {
+        //    DispatchQueue.global().async {
                 let data = try? Data(contentsOf: url!) // проверяем что изображение по ссылке существует
-                DispatchQueue.main.async {
+        //        DispatchQueue.main.async {
                     cell.imageView?.image = UIImage(data: data!) // загружаем его асинхронно
-                }
-            }
+        //        }
+        //    }
         }
         
         // переключатель - если есть
@@ -138,6 +144,9 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 // вызывается при нажатии
+        let alert = UIAlertController(title: "Внимание!", message: "Был выбран объект: " + views[indexPath.row], preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     }

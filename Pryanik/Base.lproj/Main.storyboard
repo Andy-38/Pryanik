@@ -36,6 +36,9 @@
                                                         <segment title="2"/>
                                                         <segment title="3"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="onSegmentChange:" destination="VjB-t7-uAJ" eventType="valueChanged" id="Pm2-ug-aPH"/>
+                                                    </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VTu-FT-wbv">
                                                     <rect key="frame" x="16" y="13.999999999999998" width="5.333333333333333" height="26.333333333333332"/>

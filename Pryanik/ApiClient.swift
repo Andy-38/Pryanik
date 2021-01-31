@@ -68,8 +68,8 @@ class ApiClientImpl: ApiClient { // класс реализует протоко
         // данные получены
             do { // если в блоке do происходит ошибка, то выполняется блок catch
                 let jsonDecoder = JSONDecoder() // создаем расшифровщик принятых даных типа JSON
-//                let response = try jsonDecoder.decode(PryanikResponse.self, from: data) // декодируем из data нужные нам данные типа PryanikResponse
-                let response = try jsonDecoder.decode(PryanikResponse.self, from: self.testJson!/* data */) // декодируем из testJson нужные нам данные типа PryanikResponse
+                let response = try jsonDecoder.decode(PryanikResponse.self, from: data) // декодируем из data нужные нам данные типа PryanikResponse
+//                let response = try jsonDecoder.decode(PryanikResponse.self, from: self.testJson!/* data */) // декодируем из testJson нужные нам данные типа PryanikResponse
                 completion(.success(response.data))
             } catch(let error) { // если поймали ошибку то:
                 completion(.failure(error))
