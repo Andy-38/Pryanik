@@ -7,6 +7,10 @@
 
 import UIKit
 
+class MyCell: UITableViewCell {
+    
+}
+
 class PrynikViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -39,8 +43,6 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
                     self.praniks = [] // в случае неудачи - пустой массив
                     self.showError()
                 }
-                
-                
             }
         })
         
@@ -54,8 +56,6 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
                     self.views = [] // в случае неудачи - пустой массив
                     self.showError()
                 }
-
-
             }
         })
     }
@@ -80,15 +80,41 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return praniks.count // количество элементов массива praniks
-        // сколько раз вызывается функция следующая
+        return views.count // количество элементов массива praniks
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PryanikCell", for: indexPath)
-        let pranik = praniks[indexPath.row] // получаем элемент массива
-        cell.textLabel?.text = pranik.name
-        if let text = pranik.datta.text { cell.detailTextLabel?.text = text }
+        
+        func findPryanikIndexByName(name: String) -> Pranik {
+            for index in 0...praniks.count {
+                if praniks[index].name == view {
+                    return praniks[index]
+                }
+            }
+            return praniks[0] // если ничего не нашли, то возвращаем 0-й элемент (это надо потом переделать, прикрутить какой-нибудь пустой пряник
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PryanikCell", for: indexPath) as! MyCell
+        
+        let view = views[indexPath.row] // узнаем какой элемент сейчас отобразить
+        
+        let currentPryanik = findPryanikIndexByName(name: view) // ищем этот элемент среди загруженных
+        
+        // выводим его в таблицу
+        cell.detailTextLabel?.text = "Тип данных: " + currentPryanik.name
+        if let text = currentPryanik.datta.text { cell.textLabel?.text = text }
+        
+        if let imageName = currentPryanik.datta.url {// имя картинки - из массива
+            let url = URL(string: imageName) // URL изображения
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!) // проверяем что изображение по ссылке существует
+                DispatchQueue.main.async {
+                    cell.imageView?.image = UIImage(data: data!) // загружаем его асинхронно
+                    tableView.reloadData() 
+                }
+            }
+        }
+        
         return cell
     }
     
