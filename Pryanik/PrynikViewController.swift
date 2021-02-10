@@ -20,7 +20,7 @@ class MyCell: UITableViewCell {
 }
 
 class PrynikViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var reloadButton: UIButton!
@@ -119,36 +119,40 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         //изображение - если есть
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
-        //    DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!) // проверяем что изображение по ссылке существует
-        //        DispatchQueue.main.async {
-                    cell.imageView?.image = UIImage(data: data!) // загружаем его асинхронно
-        //        }
-        //    }
-        }
-        
-        // переключатель - если есть
-        if let segments = currentPryanik.datta.variants {
-            cell.segmentControl.removeAllSegments()
-            cell.segmentControl.isHidden = false
-            for num in 0...segments.count-1 {
-                cell.segmentControl.insertSegment(withTitle: currentPryanik.datta.variants![num].text, at: currentPryanik.datta.variants![num].id, animated: false)
+            let queue = DispatchQueue.global(qos: .utility)
+            //    DispatchQueue.global().async {
+            queue.async {
+                if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
+                    //        DispatchQueue.main.async {
+                    cell.imageView?.image = UIImage(data: data) // загружаем его асинхронно
+                }
+                //        }
+                //    }
             }
         }
-        if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
-            cell.segmentControl.selectedSegmentIndex = selectedID - 1
-        } 
+            
+            // переключатель - если есть
+            if let segments = currentPryanik.datta.variants {
+                cell.segmentControl.removeAllSegments()
+                cell.segmentControl.isHidden = false
+                for num in 0...segments.count-1 {
+                    cell.segmentControl.insertSegment(withTitle: currentPryanik.datta.variants![num].text, at: currentPryanik.datta.variants![num].id, animated: false)
+                }
+            }
+            if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
+                cell.segmentControl.selectedSegmentIndex = selectedID - 1
+            }
+            
+            return cell
+        }
         
-        return cell
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            // вызывается при нажатии
+            let alert = UIAlertController(title: "Внимание!", message: "Был выбран объект: " + views[indexPath.row], preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-// вызывается при нажатии
-        let alert = UIAlertController(title: "Внимание!", message: "Был выбран объект: " + views[indexPath.row], preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
-    
-    }
-    
+
 
