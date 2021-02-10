@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		A16F1FDE25A339B80040EAA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16F1FDC25A339B80040EAA0 /* LaunchScreen.storyboard */; };
 		A16F1FEA25A33A6C0040EAA0 /* PrynikViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FE925A33A6C0040EAA0 /* PrynikViewController.swift */; };
 		A16F1FF025A3445C0040EAA0 /* Pranik.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F1FEF25A3445C0040EAA0 /* Pranik.swift */; };
+		A18CD6B125D435BA001201C0 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18CD6B025D435BA001201C0 /* Cache.swift */; };
+		A18CD6B525D458BB001201C0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A18CD6B425D458BB001201C0 /* Kingfisher */; };
 		A1A229DD25A4733A00CF8B99 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A229DC25A4733A00CF8B99 /* ApiClient.swift */; };
 		A1D7F65325C6EC82001B6BC9 /* ScreenShot01.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D7F65225C6EC81001B6BC9 /* ScreenShot01.png */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,7 @@
 		A16F1FDF25A339B80040EAA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16F1FE925A33A6C0040EAA0 /* PrynikViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrynikViewController.swift; sourceTree = "<group>"; };
 		A16F1FEF25A3445C0040EAA0 /* Pranik.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pranik.swift; sourceTree = "<group>"; };
+		A18CD6B025D435BA001201C0 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A1A229DC25A4733A00CF8B99 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A1D7F65225C6EC81001B6BC9 /* ScreenShot01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A18CD6B525D458BB001201C0 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +71,7 @@
 				A16F1FE925A33A6C0040EAA0 /* PrynikViewController.swift */,
 				A1A229DC25A4733A00CF8B99 /* ApiClient.swift */,
 				A16F1FEF25A3445C0040EAA0 /* Pranik.swift */,
+				A18CD6B025D435BA001201C0 /* Cache.swift */,
 				A16F1FD325A339B70040EAA0 /* SceneDelegate.swift */,
 				A16F1FD725A339B70040EAA0 /* Main.storyboard */,
 				A16F1FDA25A339B80040EAA0 /* Assets.xcassets */,
@@ -100,6 +105,9 @@
 			dependencies = (
 			);
 			name = Pryanik;
+			packageProductDependencies = (
+				A18CD6B425D458BB001201C0 /* Kingfisher */,
+			);
 			productName = NBAPlayersApp;
 			productReference = A16F1FCE25A339B70040EAA0 /* Pryanik.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +135,9 @@
 				Base,
 			);
 			mainGroup = A16F1FC525A339B70040EAA0;
+			packageReferences = (
+				A18CD6B325D458BB001201C0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A16F1FCF25A339B70040EAA0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,6 +170,7 @@
 				A16F1FD225A339B70040EAA0 /* AppDelegate.swift in Sources */,
 				A16F1FD425A339B70040EAA0 /* SceneDelegate.swift in Sources */,
 				A16F1FF025A3445C0040EAA0 /* Pranik.swift in Sources */,
+				A18CD6B125D435BA001201C0 /* Cache.swift in Sources */,
 				A16F1FEA25A33A6C0040EAA0 /* PrynikViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A18CD6B325D458BB001201C0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A18CD6B425D458BB001201C0 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A18CD6B325D458BB001201C0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A16F1FC625A339B70040EAA0 /* Project object */;
 }

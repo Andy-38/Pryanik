@@ -5,11 +5,13 @@
 //  Created by Андрей Двойцов on 29.01.2021.
 //
 
+import Kingfisher
 import UIKit
 
 class MyCell: UITableViewCell {
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var iii: UIImageView!
     @IBAction func onSegmentChange(_ sender: Any) {
         // по уму конечно тут надо конечно делегировать обработку классу, подписанному на протокол делегирования, но раз особо ничего делать не нужно с переключателем в тестовом задании, то просто покажу сообщение отсюда
         let alert = UIAlertController(title: "Внимание!", message: "Был выбран вариант: " + segmentControl.titleForSegment(at: segmentControl.selectedSegmentIndex)!, preferredStyle: .alert)
@@ -25,10 +27,12 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var image38: UIImageView!
     
     var praniks: [Pranik] = []
     var views: [String] = []
     let apiClient: ApiClient = ApiClientImpl()
+    var imageFromInet: UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +81,19 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         errorLabel.isHidden = false
     }
     
+    func loadImage(urlInet: String?, completion: @escaping (() -> ())){
+        if let imageName = urlInet {// имя картинки - из массива
+            let url = URL(string: imageName) // URL изображения
+            let queue = DispatchQueue.global(qos: .utility)
+            queue.async {
+                if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
+                    self.imageFromInet = UIImage(data: data) ?? UIImage()
+                        completion()
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return views.count // количество элементов массива praniks
     }
@@ -107,14 +124,38 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         if let text = currentPryanik.datta.text { cell.textLabel?.text = text }
         
         //изображение - если есть
+//        if let urlInet = currentPryanik.datta.url {
+//            loadImage(urlInet: urlInet) {
+//                DispatchQueue.main.async {
+//                    cell.iii.image = self.imageFromInet
+//                }
+//            }
+//        }
+        
+        
+        
+        
+//        if let urlInet = currentPryanik.datta.url {
+//        let cache = ImageLoadingWithCache()
+//            cache.getImage(url: urlInet, imageView: cell.imageView!, defaultImage: "DEFAULT_IMAGE_NAME")
+//        }
+        
+        
+        
+//        let url = URL(string: currentPryanik.datta.url ?? "")
+//        cell.iii.kf.setImage(with: url)
+        
+        
+        
+        
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
             let queue = DispatchQueue.global(qos: .utility)
             queue.async {
                 if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
                     DispatchQueue.main.async {
-                    cell.imageView?.image = UIImage(data: data)
-                        
+                    cell.iii.image = UIImage(data: data)
+
                     }// загружаем его асинхронно
                 }
             }
