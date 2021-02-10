@@ -45,27 +45,17 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
             DispatchQueue.main.async { // возвращаемся в основной поток
                 switch result {
                 case .success(let praniks):
-                    self.praniks = praniks // в случае успеха - на выходе массив данных
+                    self.praniks = praniks.data // в случае успеха - на выходе массив данных
+                    self.views = praniks.view
                     self.showData()
                 case .failure:
                     self.praniks = [] // в случае неудачи - пустой массив
+                    self.views = []
                     self.showError()
                 }
             }
         })
         
-        apiClient.getView(completion: { result in // получаем данные через протокол apiClient в дополнительном потоке
-            DispatchQueue.main.async { // возвращаемся в основной поток
-                switch result {
-                case .success(let views):
-                    self.views = views // в случае успеха - на выходе массив данных
-                    self.showData()
-                case .failure:
-                    self.views = [] // в случае неудачи - пустой массив
-                    self.showError()
-                }
-            }
-        })
     }
     
     private func showloading() {
@@ -120,14 +110,13 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
             let queue = DispatchQueue.global(qos: .utility)
-            //    DispatchQueue.global().async {
             queue.async {
                 if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
-                    //        DispatchQueue.main.async {
-                    cell.imageView?.image = UIImage(data: data) // загружаем его асинхронно
+                    DispatchQueue.main.async {
+                    cell.imageView?.image = UIImage(data: data)
+                        
+                    }// загружаем его асинхронно
                 }
-                //        }
-                //    }
             }
         }
             

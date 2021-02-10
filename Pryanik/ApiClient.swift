@@ -13,8 +13,7 @@ enum ApiError: Error { //перечисление возможных ошибо�
 }
 
 protocol ApiClient {
-    func getPryaniks(completion: @escaping (Result<[Pranik], Error>) -> Void) // после выполнения функции вызывается замыкание, у него на входе result - массив данных либо ошибка (при отсутствии данных), на выходе ничего (void)
-    func getView(completion: @escaping (Result<[String], Error>) -> Void) // после выполнения функции вызывается замыкание, у него на входе result - массив данных либо ошибка (при отсутствии данных), на выходе ничего (void)
+    func getPryaniks(completion: @escaping (Result<PryanikResponse, Error>) -> Void) // после выполнения функции вызывается замыкание, у него на входе result - массив данных либо ошибка (при отсутствии данных), на выходе ничего (void)
 }
 
 class ApiClientImpl: ApiClient { // класс реализует протокол, объявленный ранее
@@ -55,7 +54,7 @@ class ApiClientImpl: ApiClient { // класс реализует протоко
     }
     """.data(using: .utf8)
     
-    func getPryaniks(completion: @escaping (Result<[Pranik], Error>) -> Void) {
+    func getPryaniks(completion: @escaping (Result<PryanikResponse, Error>) -> Void) {
         let session = URLSession.shared // создаем URL-сессию
         let url = URL(string: "https://pryaniky.com/static/json/sample.json")! // адрес сервера в инете, откуда берем данные
         let urlRequest = URLRequest(url: url) // создаем запрос на основе URL-адреса
@@ -70,7 +69,7 @@ class ApiClientImpl: ApiClient { // класс реализует протоко
                 let jsonDecoder = JSONDecoder() // создаем расшифровщик принятых даных типа JSON
                 let response = try jsonDecoder.decode(PryanikResponse.self, from: data) // декодируем из data нужные нам данные типа PryanikResponse
 //                let response = try jsonDecoder.decode(PryanikResponse.self, from: self.testJson!/* data */) // декодируем из testJson нужные нам данные типа PryanikResponse
-                completion(.success(response.data))
+                completion(.success(response))
             } catch(let error) { // если поймали ошибку то:
                 completion(.failure(error))
             }
@@ -78,27 +77,5 @@ class ApiClientImpl: ApiClient { // класс реализует протоко
         
         dataTask.resume() //запускаем задачу по загрузке данных
     }
-    
-    func getView(completion: @escaping (Result<[String], Error>) -> Void) {
-        let session = URLSession.shared // создаем URL-сессию
-        let url = URL(string: "https://pryaniky.com/static/json/sample.json")! // адрес сервера в инете, откуда берем данные
-        let urlRequest = URLRequest(url: url) // создаем запрос на основе URL-адреса
-        //создаем задачу для загрузки данных:
-        let dataTask = session.dataTask(with: urlRequest, completionHandler: { data, response, error in
-            guard let data = data else { // проверяем получены ли данные
-                completion(.failure(ApiError.noData)) // выдаем ошибку если данных нет
-                return
-            }
-        // данные получены
-            do { // если в блоке do происходит ошибка, то выполняется блок catch
-                let jsonDecoder = JSONDecoder() // создаем расшифровщик принятых даных типа JSON
-                let response = try jsonDecoder.decode(PryanikResponse.self, from: data) // декодируем из data нужные нам данные типа PryanikResponse
-                completion(.success(response.view))
-            } catch(let error) { // если поймали ошибку
-                completion(.failure(error))
-            }
-        })
-        
-        dataTask.resume() //запускаем задачу по загрузке данных
-    }
+
 }
