@@ -27,7 +27,6 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var image38: UIImageView!
     
     var praniks: [Pranik] = []
     var views: [String] = []
@@ -147,13 +146,13 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         
-        
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
             let queue = DispatchQueue.global(qos: .utility)
             queue.async {
                 if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
                     DispatchQueue.main.async {
+                        
                     cell.iii.image = UIImage(data: data)
 
                     }// загружаем его асинхронно
