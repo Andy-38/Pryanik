@@ -122,6 +122,7 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         if let text = currentPryanik.datta.text { cell.textLabel?.text = text }
         
         //изображение - если есть
+        cell.iii.image = nil
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
             let queue = DispatchQueue.global(qos: .utility)
@@ -141,6 +142,8 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
             for num in 0...segments.count-1 {
                 cell.segmentControl.insertSegment(withTitle: currentPryanik.datta.variants![num].text, at: currentPryanik.datta.variants![num].id, animated: false)
             }
+        } else {
+            cell.segmentControl = nil
         }
         if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
             cell.segmentControl.selectedSegmentIndex = selectedID - 1
