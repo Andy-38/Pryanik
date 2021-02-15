@@ -5,7 +5,6 @@
 //  Created by Андрей Двойцов on 29.01.2021.
 //
 
-import Kingfisher
 import UIKit
 
 class MyCell: UITableViewCell {
@@ -87,7 +86,7 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
             queue.async {
                 if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
                     self.imageFromInet = UIImage(data: data) ?? UIImage()
-                        completion()
+                    completion()
                 }
             }
         }
@@ -123,65 +122,40 @@ class PrynikViewController: UIViewController, UITableViewDataSource, UITableView
         if let text = currentPryanik.datta.text { cell.textLabel?.text = text }
         
         //изображение - если есть
-//        if let urlInet = currentPryanik.datta.url {
-//            loadImage(urlInet: urlInet) {
-//                DispatchQueue.main.async {
-//                    cell.iii.image = self.imageFromInet
-//                }
-//            }
-//        }
-        
-        
-        
-        
-//        if let urlInet = currentPryanik.datta.url {
-//        let cache = ImageLoadingWithCache()
-//            cache.getImage(url: urlInet, imageView: cell.imageView!, defaultImage: "DEFAULT_IMAGE_NAME")
-//        }
-        
-        
-        
-//        let url = URL(string: currentPryanik.datta.url ?? "")
-//        cell.iii.kf.setImage(with: url)
-        
-        
-        
         if let imageName = currentPryanik.datta.url {// имя картинки - из массива
             let url = URL(string: imageName) // URL изображения
             let queue = DispatchQueue.global(qos: .utility)
             queue.async {
                 if  let data = try? Data(contentsOf: url!){ // проверяем что изображение по ссылке существует
                     DispatchQueue.main.async {
-                        
-                    cell.iii.image = UIImage(data: data)
-
+                        cell.iii.image = UIImage(data: data)
                     }// загружаем его асинхронно
                 }
             }
         }
-            
-            // переключатель - если есть
-            if let segments = currentPryanik.datta.variants {
-                cell.segmentControl.removeAllSegments()
-                cell.segmentControl.isHidden = false
-                for num in 0...segments.count-1 {
-                    cell.segmentControl.insertSegment(withTitle: currentPryanik.datta.variants![num].text, at: currentPryanik.datta.variants![num].id, animated: false)
-                }
+        
+        // переключатель - если есть
+        if let segments = currentPryanik.datta.variants {
+            cell.segmentControl.removeAllSegments()
+            cell.segmentControl.isHidden = false
+            for num in 0...segments.count-1 {
+                cell.segmentControl.insertSegment(withTitle: currentPryanik.datta.variants![num].text, at: currentPryanik.datta.variants![num].id, animated: false)
             }
-            if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
-                cell.segmentControl.selectedSegmentIndex = selectedID - 1
-            }
-            
-            return cell
+        }
+        if let selectedID = currentPryanik.datta.selectedId { // выбираем элемент переключателя
+            cell.segmentControl.selectedSegmentIndex = selectedID - 1
         }
         
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            // вызывается при нажатии
-            let alert = UIAlertController(title: "Внимание!", message: "Был выбран объект: " + views[indexPath.row], preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
-        }
-        
+        return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // вызывается при нажатии
+        let alert = UIAlertController(title: "Внимание!", message: "Был выбран объект: " + views[indexPath.row], preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+}
 
 
